@@ -5,8 +5,25 @@ import matplotlib.pyplot as plt
 import os
 import sklearn.preprocessing
 from sklearn import metrics
+from sklearn.model_selection import train_test_split
 import acquire
 
+def split_military(df):
+    '''
+    This function performs split on zillow data.
+    Returns train, validate, and test dfs.
+    '''
+    train_validate, test = train_test_split(df, test_size=.2, 
+                                        random_state=123)
+    train, validate = train_test_split(train_validate, test_size=.3, 
+                                   random_state=123)
+
+    print('Train: %d rows, %d cols' % train.shape)
+    print('Validate: %d rows, %d cols' % validate.shape)
+    print('Test: %d rows, %d cols' % test.shape)
+    return train, validate, test
+
+#####################################################################################################
 
 def handle_zero(df):
     mean_active_pers = df['active_personnel'].mean(skipna=True)
@@ -22,6 +39,7 @@ def prep_military(df):
     returns a clean dataframe
     '''
     # renames the columns
+    df = acquire.acquire_military()
     df = df.rename(columns={'Active Personnel': 'active_personnel', 'Aircraft Carriers': 'aircraft_carriers',
                    'Armored Vehicles':'armored_vehicles','Attack Helicopters':'attack_helicopters',
                    'Available Manpower':'avail_manpower','Coastline Coverage':'coastal_coverage','Corvettes':'corvettes',
@@ -61,3 +79,5 @@ def prep_military(df):
     return df
 
     ######################################################################################################
+
+  
