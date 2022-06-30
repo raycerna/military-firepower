@@ -39,7 +39,6 @@ def prep_military(df):
     returns a clean dataframe
     '''
     # renames the columns
-    df = acquire.acquire_military()
     df = df.rename(columns={'Active Personnel': 'active_personnel', 'Aircraft Carriers': 'aircraft_carriers',
                    'Armored Vehicles':'armored_vehicles','Attack Helicopters':'attack_helicopters',
                    'Available Manpower':'avail_manpower','Coastline Coverage':'coastal_coverage','Corvettes':'corvettes',
@@ -76,8 +75,42 @@ def prep_military(df):
          'res_personnel', 'road_cov', 'rocket_proj', 'shared_borders', 'special_mission', 'square_land_area', 
          'subs', 'tanker_fleet', 'tanks', 'total_pop', 'trainers', 'transports', 'waterways',  'total_air_strength', 
          'total_sea_strength', 'total_land_strength']]
+    # let only focus on top 10 defense budgets
+    df = df.sort_values(by=['defense_budget'], ascending=False).head(25)
     return df
 
     ######################################################################################################
 
-  
+def scale_data(train, validate, test):
+    train = train.drop(['country','country_code'], axis=1)
+    validate = validate.drop(['country','country_code'], axis=1)
+    test = test.drop(['country','country_code'], axis=1)
+
+    # Create the Scaling Object
+    scaler = sklearn.preprocessing.StandardScaler()
+
+    # Fit to the train data only
+    scaler.fit(train)
+
+    # use the object on the whole df
+    # this returns an array, so we convert to df in the same line
+    train_scaled = pd.DataFrame(scaler.transform(train))
+    validate_scaled = pd.DataFrame(scaler.transform(validate))
+    test_scaled = pd.DataFrame(scaler.transform(test))
+
+    # the result of changing an array to a df resets the index and columns
+    # for each train, validate, and test, we change the index and columns back to original values
+
+    # Train
+    train_scaled.index = train.index
+    train_scaled.columns = train.columns
+
+    # Validate
+    validate_scaled.index = validate.index
+    validate_scaled.columns = validate.columns
+
+    # Test
+    test_scaled.index = test.index
+    test_scaled.columns = test.columns
+
+    return train_scaled, validate_scaled, test_scaled
