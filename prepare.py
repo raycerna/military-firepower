@@ -66,14 +66,15 @@ def prep_military(df):
     df['total_sea_strength'] = df['air_carriers']+df['destroyers']+df['frigates']+df['corvettes']+df['subs']+df['patrol_vess']+df['mine_warfare']
     df['total_land_strength'] = df['tanks']+df['armored_vehicles']+df['arty']+df['rocket_proj']
     df =df.drop(columns= ['self_arty', 'towed_arty','attack_helicopters','dedicated_attack_aircraft',
-                      'helo_carriers','aircraft_carriers','total_aircraft_strength'], axis=1) 
+                      'helo_carriers','aircraft_carriers','total_aircraft_strength','coastal_coverage',
+                      'fit_for_service','gold_foreign_ex','labor_force','ports','mil_age','road_cov','shared_borders','waterways','railway_coverage'], axis=1) 
     df = df[['country', 'country_code', 'active_personnel', 'air_carriers', 'armored_vehicles', 'arty', 
-         'attack_aircraft', 'avail_manpower', 'coastal_coverage', 'corvettes', 'defense_budget','destroyers', 
-         'external_debt', 'fighters_interceptors','fit_for_service', 'gold_foreign_ex', 'frigates', 'helos', 
-         'labor_force', 'merch_marine_fleet', 'mine_warfare', 'navy_ships', 'oil_consumption', 'oil_production', 
-         'oil_reser', 'paramilitary', 'patrol_vess', 'ports', 'purchasing_power', 'railway_coverage', 'mil_age', 
-         'res_personnel', 'road_cov', 'rocket_proj', 'shared_borders', 'special_mission', 'square_land_area', 
-         'subs', 'tanker_fleet', 'tanks', 'total_pop', 'trainers', 'transports', 'waterways',  'total_air_strength', 
+         'attack_aircraft', 'avail_manpower', 'corvettes', 'defense_budget','destroyers', 
+         'external_debt', 'fighters_interceptors', 'frigates', 'helos', 'merch_marine_fleet', 'mine_warfare', 
+         'navy_ships', 'oil_consumption', 'oil_production', 
+         'oil_reser', 'paramilitary', 'patrol_vess', 'purchasing_power', 
+         'res_personnel', 'rocket_proj', 'special_mission', 'square_land_area', 
+         'subs', 'tanker_fleet', 'tanks', 'total_pop', 'trainers', 'transports',  'total_air_strength', 
          'total_sea_strength', 'total_land_strength']]
     # let only focus on top 10 defense budgets
     df = df.sort_values(by=['defense_budget'], ascending=False).head(25)
