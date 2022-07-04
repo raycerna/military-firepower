@@ -50,7 +50,7 @@ def prep_military(df):
                   'Oil Consumption':'oil_consumption','Oil Production':'oil_production','Oil Proven Reserves':'oil_reser',
                   'Paramilitary':'paramilitary','Patrol Vessels':'patrol_vess','Ports / Trade Terminals':'ports',
                   'Purchasing Power Parity':'purchasing_power','Railway Coverage':'railway_coverage',
-                  'Reaching Mil Age Annually':'mil_age','Reserve Personnel':'res_personnel','Roadway Coverage':'road_cov',
+                  'Reaching Mil Age Annually':'mil_age','Reserve Personnel':'res_personnel','Roadway Coverage':'road_coverage',
                   'Rocket Projectors':'rocket_proj','Self-Propelled Artillery':'self_arty','Shared Borders':'shared_borders',
                   'Special-Mission':'special_mission','Square Land Area':'square_land_area','Submarines':'subs',
                   'Tanker Fleet':'tanker_fleet','Tanks':'tanks','Total Aircraft Strength':'total_aircraft_strength',
@@ -65,18 +65,16 @@ def prep_military(df):
     df['total_air_strength'] = df['fighters_interceptors']+df['helos']+df['attack_aircraft']+df['transports']+df['trainers']+df['special_mission']+df['tanker_fleet']
     df['total_sea_strength'] = df['air_carriers']+df['destroyers']+df['frigates']+df['corvettes']+df['subs']+df['patrol_vess']+df['mine_warfare']
     df['total_land_strength'] = df['tanks']+df['armored_vehicles']+df['arty']+df['rocket_proj']
-    df =df.drop(columns= ['self_arty', 'towed_arty','attack_helicopters','dedicated_attack_aircraft',
-                      'helo_carriers','aircraft_carriers','total_aircraft_strength','coastal_coverage',
-                      'fit_for_service','gold_foreign_ex','labor_force','ports','mil_age','road_cov','shared_borders','waterways','railway_coverage'], axis=1) 
-    df = df[['country', 'country_code', 'active_personnel', 'air_carriers', 'armored_vehicles', 'arty', 
-         'attack_aircraft', 'avail_manpower', 'corvettes', 'defense_budget','destroyers', 
-         'external_debt', 'fighters_interceptors', 'frigates', 'helos', 'merch_marine_fleet', 'mine_warfare', 
-         'navy_ships', 'oil_consumption', 'oil_production', 
-         'oil_reser', 'paramilitary', 'patrol_vess', 'purchasing_power', 
-         'res_personnel', 'rocket_proj', 'special_mission', 'square_land_area', 
+    df['total_strengths'] = df['total_air_strength']+df['total_land_strength']+df['total_sea_strength']
+    df =df.drop(columns= ['self_arty', 'towed_arty','attack_helicopters','dedicated_attack_aircraft','helo_carriers','aircraft_carriers','total_aircraft_strength',
+         'coastal_coverage', 'fit_for_service','gold_foreign_ex','labor_force','ports','mil_age','shared_borders','waterways','railway_coverage'], axis=1) 
+    df = df[['country', 'country_code', 'active_personnel', 'air_carriers', 'armored_vehicles', 'arty', 'attack_aircraft', 'avail_manpower', 'corvettes', 
+         'defense_budget','destroyers','external_debt', 'fighters_interceptors', 'frigates', 'helos', 'merch_marine_fleet', 'mine_warfare', 
+         'navy_ships', 'oil_consumption', 'oil_production','oil_reser', 'paramilitary', 'patrol_vess', 'purchasing_power', 
+         'res_personnel', 'road_coverage','rocket_proj', 'special_mission', 'square_land_area', 
          'subs', 'tanker_fleet', 'tanks', 'total_pop', 'trainers', 'transports',  'total_air_strength', 
-         'total_sea_strength', 'total_land_strength']]
-    # let only focus on top 10 defense budgets
+         'total_sea_strength', 'total_land_strength', 'total_strengths']]
+    # let only focus on top 25 defense budgets
     df = df.sort_values(by=['defense_budget'], ascending=False).head(25)
     return df
 
@@ -148,7 +146,7 @@ def percentage_stacked_plot(columns_to_plot, title, df):
 
         # set the legend in the upper right corner
         ax.legend(loc="upper right", bbox_to_anchor=(0.62, 0.5, 0.5, 0.5),
-                  title='Churn', fancybox=True)
+                  title='country', fancybox=True)
 
         # eliminate the frame from the plot
         spine_names = ('top', 'right', 'bottom', 'left')
