@@ -86,7 +86,7 @@ def scale_data(train, validate, test):
     test = test.drop(['country','country_code'], axis=1)
 
     # Create the Scaling Object
-    scaler = sklearn.preprocessing.StandardScaler()
+    scaler = sklearn.preprocessing.MinMaxScaler()
 
     # Fit to the train data only
     scaler.fit(train)
