@@ -108,7 +108,7 @@
 
 ## instructions on how to reproduce this project and findings
 
-- Download acquire.py module and use it to acquire the data. 
+- Download global_firepower_2022.csv from my project page or go to: https://www.kaggle.com/datasets/prasertk/military-power-by-country-2022
 - Download prepare.py module and use its functions to prepare the data.
 - Explore on your own.
 
