@@ -14,20 +14,54 @@
 ## data dictionary (only features used in exploration):
 
 | Feature                       | Definition                               
-|-------------------------------|------------------------------------------------------------|
-|'bathroomcnt'                  | Number of bathrooms in home including fractional bathrooms |
-|'bedroomcnt'                   | Number of bedrooms in home                                 |           
-|'calculatedfinishedsquarefeet' | Calculated total finished living area of the home          |
-|'fips'                         | Federal Information Processing Standard code               |
-|'latitude'                     | Latitude coordinates of the middle of the parcel           |
-|'longitude'                    | Longitude coordinates of the middle of the parcel          |
-|'lotsizesquarefeet'            | Area of the lot in square feet                             |
-|'parcelid'                     | Unique identifier for parcels (lots)                       |
-|'poolcnt'                      | Number of pools on the lot (if any)                        |
-|'regionidzip'                  | Zip code in which the property is located                  |
-|'yearbuilt'                    | The Year the principal residence was built                 |
-|'taxvaluedollarcnt'            |The total tax assessed value of the parcel                  |
-|'taxamount'                    |The total property tax assessed for that assessment year    |
+|-------------------------------|----------------------------------------------------------------------------|
+|'Country'                      | Countries of the World considered                                          |
+|'country_code'                 | Three-digit country code                                                   |           
+|'active_personnel'             | all those personnel considered under active service status                 |
+|'air_carriers'                 | Aircraft carrier fleet strength                                            |
+|'armored_vehicles'             | Armored Fighting Vehicle fleet strength                                    |
+|'arty'                         | Artillery fleet strength                                                   |
+|'attack_aircraft'              | aircraft elements dedicated to ground strike                               |
+|'avail_manpower'               | Military manpower in form of combat personnel and labor force              |
+|'corvettes'                    | Warships typically smaller than frigates                                   |
+|'defense_budget'               | Annual defense spending budget capability                                  |
+|'destroyers'                   | Warships type is an advanced, multi-role surface vessel                    |
+|'external_debt'                | both public and private debt carried as owed to outside parties            |
+|'fighters_interceptors'        | Aircraft fighters (multirole, interceptors), trainers (basic, advanced),   |
+|                               | transports (fixed-wing and helos), dedicated bombers and ground-attackers, |
+|                               | special-missions platforms, etc.                                           |
+|'frigates'                     | Frigate ship type is a multi-role, general purpose ocean-going vessel      |
+|                               | utilized for fleet surface ship protection against enemy surface combatants|
+|                               | or incoming aerial threats.                                                |
+|'helos'                        | Total Helicopter strength                                                  |           
+|'merch_marine_fleet'           | Force of ships operating under civilian banners in peace time and, in times|
+|                               | of war, commissioned by the naval branch of service to augment the main    |
+|                               | surface fighting force.                                                    |
+|'mine_warfare'                 | Mine / countermine warfare ships                                           |
+|'navy_ships'                   | Total Naval vessels                                                        |
+|'oil_consumption'              | Applied as a penalty to each nation, the higher its consumption the worse  |
+|                               | effect on a theoretical war effort.                                        |
+|'oil_production'               | Area of the lot in square feet                             |
+|'oil_reser'                    | Unique identifier for parcels (lots)                       |
+|'paramilitary'                 | Number of pools on the lot (if any)                        |
+|'patrol_vess'                  | Zip code in which the property is located                  |
+|'purchasing_power'             | The Year the principal residence was built                 |
+|'res_personnel'                |The total tax assessed value of the parcel                  |
+|'road_coverage'                |The total property tax assessed for that assessment year    |
+|'rocket_proj'                  | Number of bedrooms in home                                 |           
+|'special_mission'              | Calculated total finished living area of the home          |
+|'square_land_area'             | Federal Information Processing Standard code               |
+|'subs'                         | Latitude coordinates of the middle of the parcel           |
+|'tanker_fleet'                 | Longitude coordinates of the middle of the parcel          |
+|'tanks'                        | Area of the lot in square feet                             |
+|'total_pop'                    | Unique identifier for parcels (lots)                       |
+|'trainers'                     | Number of pools on the lot (if any)                        |
+|'transports'                   | Zip code in which the property is located                  |
+|'total_air_strength'           | The Year the principal residence was built                 |
+|'total_sea_strength'           |The total tax assessed value of the parcel                  |
+|'total_land_strength'          |The total property tax assessed for that assessment year    |
+|'total_strengths'              |The total tax assessed value of the parcel                  |
+
 
 
 ## project planning:
