@@ -1,14 +1,15 @@
-# Predicting propery tax assessed values of Single Family Properties
+# Top Military Strengths by Country using PCA
 
-## project description with goals
+## Project Description and Goals
 
-#### The goal of this project is to find the key drivers of property tax value for single family properties that had a transaction in 2017. The scenario is that a Zillow Data Science Team has a model ready, but they are looking for insights that can help improve it. This project will give recommendations on a way to make a better model. It will also give me an opportunity to practice the data science pipeline to include Acquire, Prepare, Exploring, and Modeling.
+### This is an analysis of the top militaries by country with the highest defense budget. This can deliver insight into current and future capabilities at a glance. My overall goal here is to show the features that are related to defense budget and how this makes a force not to be reckoned with. In the future with more available data, we can deliver critical insight into the current and future size, shape, and capabilities of the world's key military powers.
 
 
-## initial hypotheses:
-
-#### 𝐻0 there is no relationship between tax values and number of bedrooms, bathrooms and square_feet
-#### 𝐻𝑎: There is a relationship between tax values and number of bedrooms, bathrooms and square_feet
+### Initial thoughts:
+- The strongest military power has the highest defense budget.
+- Smaller countries in square land area have less of a defense budget.
+- The more a country has in debt, the more the country has in defense budget
+- The greater the population of a country, the higher the defense budget.
 
 ## data dictionary (only features used in exploration):
 
