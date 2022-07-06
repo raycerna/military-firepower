@@ -7,6 +7,7 @@ import seaborn as sns
 
 
 def acquire_military():
-    file = "/Users/Ray/codeup-data-science/military-firepower/global_firepower_2022.csv"
-    df = pd.read_csv(file)
+    url = 'https://github.com/raycerna/military-firepower/blob/main/global_firepower_2022.csv?raw=true'
+    df = pd.read_csv(url,index_col=0)
+
     return df
