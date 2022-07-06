@@ -41,7 +41,7 @@ def prep_military(df):
     # renames the columns
     df = df.rename(columns={'Active Personnel': 'active_personnel', 'Aircraft Carriers': 'aircraft_carriers',
                    'Armored Vehicles':'armored_vehicles','Attack Helicopters':'attack_helicopters',
-                   'Available Manpower':'avail_manpower','Coastline Coverage':'coastal_coverage','Corvettes':'corvettes',
+                   'Available Manpower':'avail_manpower','Coastline Coverage':'coastal_coverage', 'country': 'country', 'country code':'country_code','Corvettes':'corvettes',
                   'Dedicated Attack':'dedicated_attack_aircraft','Defense Budget':'defense_budget','Destroyers':'destroyers',
                   'External Debt':'external_debt','Fighters/Interceptors':'fighters_interceptors','Fit-for-Service':
                   'fit_for_service','Foreign Exchange/Gold':'gold_foreign_ex','Frigates':'frigates',
@@ -68,7 +68,7 @@ def prep_military(df):
     df['total_strengths'] = df['total_air_strength']+df['total_land_strength']+df['total_sea_strength']
     df =df.drop(columns= ['self_arty', 'towed_arty','attack_helicopters','dedicated_attack_aircraft','helo_carriers','aircraft_carriers','total_aircraft_strength',
          'coastal_coverage', 'fit_for_service','gold_foreign_ex','labor_force','ports','mil_age','shared_borders','waterways','railway_coverage'], axis=1) 
-    df = df[['country', 'country_code', 'active_personnel', 'air_carriers', 'armored_vehicles', 'arty', 'attack_aircraft', 'avail_manpower', 'corvettes', 
+    df = df[['country_code', 'active_personnel', 'air_carriers', 'armored_vehicles', 'arty', 'attack_aircraft', 'avail_manpower', 'corvettes', 
          'defense_budget','destroyers','external_debt', 'fighters_interceptors', 'frigates', 'helos', 'merch_marine_fleet', 'mine_warfare', 
          'navy_ships', 'oil_consumption', 'oil_production','oil_reser', 'paramilitary', 'patrol_vess', 'purchasing_power', 
          'res_personnel', 'road_coverage','rocket_proj', 'special_mission', 'square_land_area', 
@@ -81,9 +81,9 @@ def prep_military(df):
     ######################################################################################################
 
 def scale_data(train, validate, test):
-    train = train.drop(['country','country_code'], axis=1)
-    validate = validate.drop(['country','country_code'], axis=1)
-    test = test.drop(['country','country_code'], axis=1)
+    train = train.drop(['country_code'], axis=1)
+    validate = validate.drop(['country_code'], axis=1)
+    test = test.drop(['country_code'], axis=1)
 
     # Create the Scaling Object
     scaler = sklearn.preprocessing.MinMaxScaler()
